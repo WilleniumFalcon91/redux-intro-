@@ -34,3 +34,15 @@ store.subscribe(render);
 inc.addEventListener('click', () => store.dispatch({type: 'INCREMENT'}));
 dec.addEventListener('click', () => store.dispatch({type: 'DECREMENT'}));
 
+incIfOdd.addEventListener('click', () => {
+    if (store.getState() % 2 !== 0) {
+        store.dispatch({type: "INCREMENT"})
+    }
+});
+
+incAsync.addEventListener('click', () => {
+  setTimeout(() => {
+    store.dispatch({type: 'INCREMENT'});
+  }, 2000);
+});
+
